@@ -1,4 +1,4 @@
-; #Include ../core/Point.ahk
+#Include ../core/Point.ahk
 class BattlePass {
     static page1 := Point(1184, 60)
     static page2 := Point(1280, 60)

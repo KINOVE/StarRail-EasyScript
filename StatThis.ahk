@@ -7,7 +7,7 @@
 #Include core/Point.ahk
 /* Module */
 #Include module/BattlePass.ahk
-
+#Include module/Teleport.ahk
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
 
@@ -25,3 +25,4 @@ StarRail.get_game_pos()
 ; }
 
 ^F2::BattlePass.get_bp_awards()
+^T::Teleport.fastTeleport()
