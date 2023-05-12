@@ -8,8 +8,9 @@ class Teleport {
     static fastTeleport(){
         isOk := ImageSearch(&targetX, &targetY, this.teleportBtnRange[1].x, this.teleportBtnRange[1].y, this.teleportBtnRange[2].x, this.teleportBtnRange[2].y, "*100 files\images\teleportBtn.png")
         if(isOk){
-            ; MouseMove(targetX, targetY)
-            MouseClick(, targetX, targetY)
+            MouseGetPos(&x, &y)
+            MouseClick(, targetX, targetY, , 0)
+            MouseMove(x, y, 0)
         }
     }
 }

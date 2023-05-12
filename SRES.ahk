@@ -8,6 +8,7 @@
 /* Module */
 #Include module/BattlePass.ahk
 #Include module/Teleport.ahk
+#Include module/Achievement.ahk
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
 
@@ -19,10 +20,20 @@ StarRail.get_game_pos()
 ; 调试用功能，快速Reload脚本
 ^!r:: Reload
 
+; 连跳
+Space:: {
+    SendInput('{Space}')
+}
+Space Up:: SendInput('{Space Up}')
+
 ; !1::{
 ;     StarRail.get_game_pos()
 ;     MsgBox(StarRail.game_size.width)
 ; }
 
 ^F2::BattlePass.get_bp_awards()
+
+^F3::Achievement.get_achievement_rewards()
+
+
 ^T::Teleport.fastTeleport()
