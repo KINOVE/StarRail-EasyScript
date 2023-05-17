@@ -17,7 +17,7 @@ Class Achievement{
         if (!Tools.pixelExist(this.isRewardsExistPoint, '0xd62d2c')){
             SendInput('{Esc}')
             ToolTip('没有新的成就奖励需要领取', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
-            SetTimer () => ToolTip('',,1), -1000
+            SetTimer () => ToolTip('',,1), -3000
             return
         }
         MouseClick( , this.isRewardsExistPoint.x, this.isRewardsExistPoint.y, , 0)
@@ -30,11 +30,12 @@ Class Achievement{
             Sleep(300)
             while(Tools.pixelExist(this.getRewardsBtnPoint, '0xffc657')){
                 MouseClick( , this.getRewardsBtnPoint.x, this.getRewardsBtnPoint.y, , 0)
+                MouseMove(300,300,0)
                 Sleep(700)
                 SendInput('{Esc}')
-                Sleep(900)
+                Sleep(1500)
             }
-            Sleep(20)
+            ; Sleep(300)
         }
         SendInput('{Esc}')
         Sleep(1000)
