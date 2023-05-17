@@ -2,13 +2,15 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-/* Core */
+; Core
 #Include core/StarRail.ahk
 #Include core/Point.ahk
-/* Module */
+
+; Module
 #Include module/BattlePass.ahk
 #Include module/Teleport.ahk
 #Include module/Achievement.ahk
+
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
 
@@ -26,10 +28,6 @@ Space:: {
 }
 Space Up:: SendInput('{Space Up}')
 
-; !1::{
-;     StarRail.get_game_pos()
-;     MsgBox(StarRail.game_size.width)
-; }
 
 ^F2::BattlePass.get_bp_awards()
 
