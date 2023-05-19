@@ -17,6 +17,7 @@ class BattlePass {
     ; 检查page1是否存在奖励需要领取，并
     static get_page1_awards(){
         if(!Tools.pixelExist(this.page1, this.page_red_color.c)){
+            MsgBox('get_page1_awards()' . Tools.pixelExist(this.page1, this.page_red_color.c))
             return
         }
         ; 切换到第一页
@@ -56,9 +57,9 @@ class BattlePass {
             return
         }
         if(!Tools.pixelExist(this.page2, this.page_red_color.c)){
+            ToolTip('Page2没有需要领取的奖励', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
             ; Page2不存在红点，开始检查Page1
             this.get_page1_awards()
-            ToolTip('没有需要领取的奖励', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
             SetTimer () => ToolTip('',,1), -3000
             SendInput('{Esc}')
             return

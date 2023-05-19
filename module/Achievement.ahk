@@ -33,7 +33,7 @@ Class Achievement{
                 MouseMove(300,300,0)
                 Sleep(700)
                 SendInput('{Esc}')
-                Sleep(1500)
+                Sleep(800)
             }
             ; Sleep(300)
         }
