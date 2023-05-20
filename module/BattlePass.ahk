@@ -34,7 +34,7 @@ class BattlePass {
     }
 
     static check_is_upgrade(){
-        if(PixelGetColor(this.page2_Btn.x, this.page2_Btn.y) == this.page2_Btn_color.c)
+        if(PixelGetColor(this.page2_Btn.x, this.page2_Btn.y) != this.page2_Btn_color.c)
             return true
         else
             return false
