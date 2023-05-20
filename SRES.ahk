@@ -10,6 +10,7 @@
 #Include module/BattlePass.ahk
 #Include module/Teleport.ahk
 #Include module/Achievement.ahk
+#Include module/Assignments.ahk
 
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
@@ -32,6 +33,8 @@ Space Up:: SendInput('{Space Up}')
 ^F2::BattlePass.get_bp_awards()
 
 ^F3::Achievement.get_achievement_rewards()
+
+^F1::Assignments.Claim_All()
 
 
 ^T::Teleport.fastTeleport()
