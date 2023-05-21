@@ -29,6 +29,20 @@ Space:: {
 }
 Space Up:: SendInput('{Space Up}')
 
+; 鼠标快速连点
+^!LButton::{
+    Click
+    clickPlus(){
+        if GetKeyState('LButton','P'){
+            Sleep(Random(100,150))
+            Click
+        } else {
+            SetTimer(clickPlus, 0)
+        }
+    }
+    SetTimer(clickPlus, 50)
+}
+
 
 ^F2::BattlePass.get_bp_awards()
 
