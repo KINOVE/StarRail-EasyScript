@@ -51,7 +51,7 @@ Class Assignments {
             }
         }
         SendInput('{Esc}')
-        Sleep(200)
+        Sleep(1000)
         SendInput('{Esc}')
     }
 }
