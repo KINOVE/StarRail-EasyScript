@@ -4,22 +4,22 @@
 #Include ../core/StarRail.ahk
 
 Class Assignments {
-    static p_Assignments_Red_Tip := Point(2417, 319)
+    static p_Assignments_Red_Tip := Point(Pos(2417, 319))
     static c_Assignments_Red_Tip := Color('#d62c2b')
     static p_Tabs_Red := [
-        Point(888, 205),
-        Point(1148, 205),
-        Point(1408, 205)
+        Point(Pos(888, 205)),
+        Point(Pos(1148, 205)),
+        Point(Pos(1408, 205))
     ]
     static c_Tabs_Red := Color('#d62d2b')
 
     static p_Child_Tabs_Red_Range := [
-        Point(1095, 291),
-        Point(1125, 682)
+        Point(Pos(1095, 291)),
+        Point(Pos(1125, 682))
     ]
 
-    static p_Claim_Btn := Point(1675, 908)
-    static p_repatch := Point(1372, 960)
+    static p_Claim_Btn := Point(Pos(1675, 908))
+    static p_repatch := Point(Pos(1372, 960))
 
     static Claim_All(){
         SendInput('{Esc}')

@@ -2,13 +2,13 @@
 #Include ../core/Tools.ahk
 Class Achievement{
     
-    static isRewardsExistPoint := Point(2420, 443)
-    static centerBtnPoint := Point(1272, 417)
+    static isRewardsExistPoint := Point(Pos(2420, 443))
+    static centerBtnPoint := Point(Pos(1272, 417))
     static redTabsRange := [
-        Point(848, 22),
-        Point(1714, 60)
+        Point(Pos(848, 22)),
+        Point(Pos(1714, 60))
     ]
-    static getRewardsBtnPoint := Point(2348, 308)
+    static getRewardsBtnPoint := Point(Pos(2348, 308))
 
 
     static get_achievement_rewards(){
