@@ -6,13 +6,13 @@
 Class DailyTraining {
 
     ; 获取经验的按钮
-    static p_claim_btn := Point(723, 774)
+    static p_claim_btn := Point(Pos(723, 774))
     static c_claim_btn := Color('#ffc85a')
 
     ; 奖励领取红点出现的区域
     static p_reward_range := [
-        Point(956,267),
-        Point(1910,308)
+        Point(Pos(956,267)),
+        Point(Pos(1910,308))
     ]
     static c_red := Color('#dc302c')
 

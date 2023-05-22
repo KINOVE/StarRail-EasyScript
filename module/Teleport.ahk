@@ -1,12 +1,12 @@
 #Include ../core/Point.ahk
 class Teleport {
     static teleportBtnRange := [
-        Point(2245,950),
-        Point(2355,990)
+        Point(Pos(2245,950)),
+        Point(Pos(2355,990))
     ]
     static ChoiceBtnRange := [
-        Point(1090,605),
-        Point(1182,952)
+        Point(Pos(1090,605)),
+        Point(Pos(1182,952))
     ]
 
     ; 获取是否存在包含“传送”两个字的按钮位置

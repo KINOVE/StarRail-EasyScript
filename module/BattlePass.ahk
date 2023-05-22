@@ -2,17 +2,17 @@
 #Include ../core/Tools.ahk
 #Include ../core/Color.ahk
 class BattlePass {
-    static page1 := Point(1203, 41)
-    static page2 := Point(1299, 41)
-    static page1_Btn := Point(1158, 65)
+    static page1 := Point(Pos(1203, 41))
+    static page2 := Point(Pos(1299, 41))
+    static page1_Btn := Point(Pos(1158, 65))
     ; static page1_Btn_color := '0xE9E9E9'
     static page1_Btn_color := Color('#e9e9e9')
     static page_red_color := Color('#D32D29')
-    static page2_one_click_fetch_btn := Point(2190, 917)
+    static page2_one_click_fetch_btn := Point(Pos(2190, 917))
     static btn_yellow_color := Color('#ffc85b')
-    static page2_Btn := Point(1261, 63)
+    static page2_Btn := Point(Pos(1261, 63))
     static page2_Btn_color := Color('#e8ebe8')
-    static page1_one_click_fetch_btn := Point(1992,921)
+    static page1_one_click_fetch_btn := Point(Pos(1992,921))
     
     ; 检查page1是否存在奖励需要领取，并
     static get_page1_awards(){
