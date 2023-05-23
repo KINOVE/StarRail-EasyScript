@@ -31,7 +31,7 @@ Class DailyTraining {
     static find_and_click_to_claim_exp(){
         targetx := 0, targety := 0
         if(!Tools.pixelExist(this.p_claim_btn, this.c_claim_btn.c, , , &targetx, &targety)){
-            return Sleep(500)
+            return Sleep(1500)
         }
         while (Tools.pixelExist(this.p_claim_btn, this.c_claim_btn.c, , , &targetx, &targety)){
             MouseClick(, targetx, targety)
