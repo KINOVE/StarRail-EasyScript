@@ -40,6 +40,7 @@ Class DailyTraining {
         SendInput('{F4}')
         Sleep(1500)
         this.find_and_click_to_claim_exp()
+        Sleep(500)
         this.find_and_click_to_claim_red_tips_reward()
         SendInput('{Esc}')
     }
