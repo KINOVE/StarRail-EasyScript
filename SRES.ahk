@@ -16,6 +16,7 @@
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
 
+; SetTimer () => StarRail.get_game_pos(), 3000
 StarRail.get_game_pos()
 
 ; 快速退出游戏
