@@ -30,6 +30,9 @@ Class DailyTraining {
     ; 找到黄色Claim按钮并领取Exp
     static find_and_click_to_claim_exp(){
         targetx := 0, targety := 0
+        if(!Tools.pixelExist(this.p_claim_btn, this.c_claim_btn.c, , , &targetx, &targety)){
+            return Sleep(500)
+        }
         while (Tools.pixelExist(this.p_claim_btn, this.c_claim_btn.c, , , &targetx, &targety)){
             MouseClick(, targetx, targety)
             Sleep(800)
@@ -40,7 +43,6 @@ Class DailyTraining {
         SendInput('{F4}')
         Sleep(1500)
         this.find_and_click_to_claim_exp()
-        Sleep(500)
         this.find_and_click_to_claim_red_tips_reward()
         SendInput('{Esc}')
     }
