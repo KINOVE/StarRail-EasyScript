@@ -17,7 +17,7 @@ class BattlePass {
     ; 检查page1是否存在奖励需要领取，并
     static get_page1_awards(){
         if(!Tools.pixelExist(this.page1, this.page_red_color.c)){
-            MsgBox('get_page1_awards()' . Tools.pixelExist(this.page1, this.page_red_color.c))
+            ; MsgBox('get_page1_awards()' . Tools.pixelExist(this.page1, this.page_red_color.c))
             return
         }
         ; 切换到第一页
