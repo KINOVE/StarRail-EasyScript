@@ -21,6 +21,7 @@ Class DailyTraining {
         targetx := 0, targety := 0
         while (Tools.pixelSearchPlus(this.p_reward_range[1], this.p_reward_range[2], this.c_red.c, &targetx, &targety)){
             MouseClick(, targetx, targety)
+            MouseMove(300,300)
             Sleep(1000)
             SendInput('{Esc}')
             Sleep(800)
@@ -35,6 +36,7 @@ Class DailyTraining {
         }
         while (Tools.pixelExist(this.p_claim_btn, this.c_claim_btn.c, , , &targetx, &targety)){
             MouseClick(, targetx, targety)
+            MouseMove(300,300)
             Sleep(800)
         }
     }
