@@ -20,7 +20,7 @@ Class DailyTraining {
     static find_and_click_to_claim_red_tips_reward(){
         targetx := 0, targety := 0
         while (Tools.pixelSearchPlus(this.p_reward_range[1], this.p_reward_range[2], this.c_red.c, &targetx, &targety)){
-            MouseClick(, targetx, targety)
+            MouseClick(, targetx - 10, targety + 10)
             MouseMove(300,300)
             Sleep(1000)
             SendInput('{Esc}')

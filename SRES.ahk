@@ -17,7 +17,7 @@
 #HotIf StarRail.is_game_active()
 
 ; SetTimer () => StarRail.get_game_pos(), 3000
-StarRail.get_game_pos()
+SetTimer () => StarRail.get_game_pos(), -12000
 
 ; 快速退出游戏
 ^Esc:: StarRail.close_game()
@@ -52,6 +52,16 @@ Space Up:: SendInput('{Space Up}')
 ^F3::Achievement.get_achievement_rewards()
 
 ^F4::DailyTraining.ClaimAll()
+
+`::{
+    Assignments.Claim_All()
+    Sleep(1000)
+    BattlePass.get_bp_awards()
+    Sleep(1000)
+    Achievement.get_achievement_rewards()
+    Sleep(1000)
+    DailyTraining.ClaimAll()
+}
 
 
 ^T::Teleport.fastTeleport()
