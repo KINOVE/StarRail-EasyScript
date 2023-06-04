@@ -48,20 +48,23 @@ class BattlePass {
     }
 
     static get_bp_awards(){
+        ToolTip("正在领取无名勋礼（通行证）奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
         SendInput('{F2}')
         Sleep(1500)
         if(!this.check_is_battle_pass_page()){
             MsgBox(PixelGetColor(this.page1_Btn.x, this.page1_Btn.y))
             ToolTip('并未打开纪行页面，请确保处于游戏主界面', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
             SetTimer () => ToolTip('',,1), -3000
+            ToolTip("",,, 11)
             return
         }
         if(!Tools.pixelExist(this.page2, this.page_red_color.c)){
-            ToolTip('Page2没有需要领取的奖励', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
+            ToolTip('任务界面没有需要获取的EXP', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
             ; Page2不存在红点，开始检查Page1
             this.get_page1_awards()
             SetTimer () => ToolTip('',,1), -3000
             SendInput('{Esc}')
+            ToolTip("",,, 11)
             return
         }
         MouseClick(, this.page2.x, this.page2.y)
@@ -71,11 +74,13 @@ class BattlePass {
         ; 假如没有升级界面弹出/page2激活的按钮没有被遮挡
         if(!this.check_is_upgrade()){
             SendInput('{Esc}')
+            ToolTip("",,, 11)
             return
         }
         ; 退出升级界面
         SendInput('{Esc}')
         Sleep(500)
         this.get_page1_awards()
+        ToolTip("",,, 11)
     }
 }

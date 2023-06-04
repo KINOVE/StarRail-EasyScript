@@ -42,10 +42,12 @@ Class DailyTraining {
     }
 
     static ClaimAll(){
+        ToolTip("正在领取每日实训奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
         SendInput('{F4}')
         Sleep(1500)
         this.find_and_click_to_claim_exp()
         this.find_and_click_to_claim_red_tips_reward()
         SendInput('{Esc}')
+        ToolTip("",,, 11)
     }
 }
