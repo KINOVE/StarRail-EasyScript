@@ -7,7 +7,7 @@ Class StarRail{
     }
 
     static get_game_pos(){
-        if(ProcessExist(this.game_name)){
+        if(ProcessExist(this.game_name) && this.is_game_active()){
             WinGetClientPos( , , &width, &height, 'ahk_exe' this.game_name)
             this.game_size.width := width
             this.game_size.height := height
