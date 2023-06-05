@@ -52,8 +52,8 @@ class BattlePass {
         SendInput('{F2}')
         Sleep(1500)
         if(!this.check_is_battle_pass_page()){
-            MsgBox(PixelGetColor(this.page1_Btn.x, this.page1_Btn.y))
-            ToolTip('并未打开纪行页面，请确保处于游戏主界面', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
+            ; MsgBox(PixelGetColor(this.page1_Btn.x, this.page1_Btn.y))
+            ToolTip('并未打开通行证页面，请确保处于游戏主界面 / 若通行证已关闭，请无视', StarRail.game_size.width/2, StarRail.game_size.height* 9/10, 1)
             SetTimer () => ToolTip('',,1), -3000
             ToolTip("",,, 11)
             return
