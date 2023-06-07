@@ -64,6 +64,8 @@ Space Up:: SendInput('{Space Up}')
     Achievement.get_achievement_rewards()
     Sleep(1000)
     DailyTraining.ClaimAll()
+    ToolTip("全部任务结束", StarRail.game_size.width / 2, StarRail.game_size.height * 9 / 10, 11)
+    SetTimer () => ToolTip("", , ,11), -3000
 }
 
 
