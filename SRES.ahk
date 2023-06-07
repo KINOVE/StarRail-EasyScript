@@ -12,6 +12,7 @@
 #Include module/Achievement.ahk
 #Include module/Assignments.ahk
 #Include module/DailyTraining.ahk
+#Include module/SimulatedUniverseIndex.ahk
 
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
@@ -52,6 +53,8 @@ Space Up:: SendInput('{Space Up}')
 ^F3::Achievement.get_achievement_rewards()
 
 ^F4::DailyTraining.ClaimAll()
+
+^1::SimulatedUniverseIndex.EventReward()
 
 `::{
     Assignments.Claim_All()
