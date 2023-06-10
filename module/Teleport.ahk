@@ -16,9 +16,9 @@ class Teleport {
 
     static fastTeleport(){
         isOkToTeleport := this.getBtnIsOk(&targetX, &targetY)
-        ChoiceBtnExist := ImageSearch(&choiceTargetX, &choiceTargetY, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport1.png")
-
-        if(ChoiceBtnExist){
+        ChoiceBtnExist_1 := ImageSearch(&choiceTargetX, &choiceTargetY, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport1.png")
+        ChoiceBtnExist_2 := ImageSearch(&choiceTargetX, &choiceTargetY, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport2.png")
+        if(ChoiceBtnExist_1 || ChoiceBtnExist_2){
             MouseGetPos(&x, &y)
             MouseClick(, choiceTargetX, choiceTargetY, , 0)
             MouseMove(x, y, 0)
