@@ -16,8 +16,22 @@ class Teleport {
 
     static fastTeleport(){
         isOkToTeleport := this.getBtnIsOk(&targetX, &targetY)
-        ChoiceBtnExist_1 := ImageSearch(&choiceTargetX, &choiceTargetY, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport1.png")
-        ChoiceBtnExist_2 := ImageSearch(&choiceTargetX, &choiceTargetY, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport2.png")
+        ChoiceBtnExist_1 := ImageSearch(&choiceTargetX1, &choiceTargetY1, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport1.png")
+        ChoiceBtnExist_2 := ImageSearch(&choiceTargetX2, &choiceTargetY2, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport2.png")
+        
+        if(ChoiceBtnExist_1 && !ChoiceBtnExist_2){
+            choiceTargetX := choiceTargetX1
+            choiceTargetY := choiceTargetY1
+        }
+        else if (!ChoiceBtnExist_1 && ChoiceBtnExist_2){
+            choiceTargetX := choiceTargetX2
+            choiceTargetY := choiceTargetY2
+        }
+        else if(ChoiceBtnExist_1 && ChoiceBtnExist_2){
+            choiceTargetX := Min(choiceTargetX1, choiceTargetX2)
+            choiceTargetY := Min(choiceTargetY1, choiceTargetY2)
+        }
+
         if(ChoiceBtnExist_1 || ChoiceBtnExist_2){
             MouseGetPos(&x, &y)
             MouseClick(, choiceTargetX, choiceTargetY, , 0)
