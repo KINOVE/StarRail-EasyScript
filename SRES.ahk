@@ -59,11 +59,11 @@ Space Up:: SendInput('{Space Up}')
 `::{
     Assignments.Claim_All()
     Sleep(1000)
-    BattlePass.get_bp_awards()
-    Sleep(1000)
     Achievement.get_achievement_rewards()
     Sleep(1000)
     DailyTraining.ClaimAll()
+    Sleep(1000)
+    BattlePass.get_bp_awards()
     ToolTip("全部任务结束", StarRail.game_size.width / 2, StarRail.game_size.height * 9 / 10, 11)
     SetTimer () => ToolTip("", , ,11), -3000
 }
