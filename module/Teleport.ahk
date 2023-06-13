@@ -9,9 +9,27 @@ class Teleport {
         Point(Pos(1182,952))
     ]
 
+    static CheckBtn := Point(Pos(1465, 673))
+
     ; 获取是否存在包含“传送”两个字的按钮位置
     static getBtnIsOk(&targetX, &targetY){
-        return ImageSearch(&targetX, &targetY, this.teleportBtnRange[1].x, this.teleportBtnRange[1].y, this.teleportBtnRange[2].x, this.teleportBtnRange[2].y, "*100 files\images\teleportBtn.png")
+        targetX1 := 0, targetX2 := 0
+        targetY1 := 0, targetY2 := 0
+        target1 := ImageSearch(&targetX1, &targetY1, this.teleportBtnRange[1].x, this.teleportBtnRange[1].y, this.teleportBtnRange[2].x, this.teleportBtnRange[2].y, "*100 files\images\teleportBtn.png")
+        target2 := ImageSearch(&targetX2, &targetY2, this.teleportBtnRange[1].x, this.teleportBtnRange[1].y, this.teleportBtnRange[2].x, this.teleportBtnRange[2].y, "*100 files\images\teleportBtn2.png")
+
+        if (target1){
+            targetX := targetX1
+            targetY := targetY1
+            return true
+        }
+        else if (target2){
+            targetX := targetX2
+            targetY := targetY2
+            return 2
+        }
+
+        return false
     }
 
     static fastTeleport(){
@@ -40,9 +58,18 @@ class Teleport {
             isOkToTeleport := this.getBtnIsOk(&targetX, &targetY)
         }
 
-        if(isOkToTeleport){
+        if(isOkToTeleport == 1){
             MouseGetPos(&x, &y)
             MouseClick(, targetX, targetY, , 0)
+            MouseMove(x, y, 0)
+        }
+
+        if(isOkToTeleport == 2){
+            MouseGetPos(&x, &y)
+            MouseClick(, targetX, targetY, , 0)
+            Sleep(300)
+            MouseClick(, this.CheckBtn.x, this.CheckBtn.y, , 0)
+            Sleep(300)
             MouseMove(x, y, 0)
         }
     }
