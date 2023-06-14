@@ -7,7 +7,7 @@ Class Scenes{
 
     static IsWorldScene(){
         static worldPoints := [
-            Point(Pos(43, 82)),
+            Point(Pos(43, 82), Pos(43, 82)),
 
         ]
         static worldColors :=[
@@ -16,6 +16,7 @@ Class Scenes{
         ]
 
         while (A_Index <= worldPoints.Length){
+            worldPoints[A_Index].refresh_pos()
             if(!Tools.pixelExist(worldPoints[A_Index], worldColors[A_Index].c)){
                 return false
             }
@@ -26,13 +27,14 @@ Class Scenes{
 
     static IsMapScene(){
         static mapPoints := [
-            Point(Pos(68, 71)),
+            Point(Pos(68, 71), Pos(68, 71)),
         ]
         static mapColors := [
             Color("#000000"),
         ]
 
         while (A_Index <= mapPoints.Length){
+            mapPoints[A_Index].refresh_pos()
             if(!Tools.pixelExist(mapPoints[A_Index], mapColors[A_Index].c)){
                 return false
             }
