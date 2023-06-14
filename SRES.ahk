@@ -5,6 +5,7 @@
 ; Core
 #Include core/StarRail.ahk
 #Include core/Point.ahk
+#Include core/Scenes.ahk
 
 ; Module
 #Include module/BattlePass.ahk
@@ -46,6 +47,12 @@ Space Up:: SendInput('{Space Up}')
     SetTimer(clickPlus, 50)
 }
 
+^1::SimulatedUniverseIndex.EventReward()
+
+
+; 在场景为大世界的时候启用以下功能
+#HotIf StarRail.is_game_active() && (Scenes.GetScene() == 1)
+
 ^F1::Assignments.Claim_All()
 
 ^F2::BattlePass.get_bp_awards()
@@ -53,8 +60,6 @@ Space Up:: SendInput('{Space Up}')
 ^F3::Achievement.get_achievement_rewards()
 
 ^F4::DailyTraining.ClaimAll()
-
-^1::SimulatedUniverseIndex.EventReward()
 
 `::{
     Assignments.Claim_All()
@@ -68,5 +73,6 @@ Space Up:: SendInput('{Space Up}')
     SetTimer () => ToolTip("", , ,11), -3000
 }
 
-
+; 场景为地图时启用
+#HotIf StarRail.is_game_active() && (Scenes.GetScene() == 2)
 ^T::Teleport.fastTeleport()
