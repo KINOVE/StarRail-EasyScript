@@ -22,6 +22,8 @@ Class StarRail{
     }
 
     static is_game_active(){
+        ; 首先获取一次窗口大小
+        this.get_game_pos()
         return WinActive('ahk_exe ' this.game_name)
     }
 
