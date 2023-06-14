@@ -1,15 +1,23 @@
 #Include ../core/Point.ahk
 class Teleport {
     static teleportBtnRange := [
-        Point(Pos(2245,950)),
-        Point(Pos(2355,990))
+        Point(Pos(2245,950), Pos(1567, 950)),
+        Point(Pos(2355,990), Pos(1722, 990))
     ]
     static ChoiceBtnRange := [
-        Point(Pos(1090,605)),
-        Point(Pos(1182,952))
+        Point(Pos(1090,605), Pos(780, 653)),
+        Point(Pos(1182,952), Pos(858, 954))
     ]
 
-    static CheckBtn := Point(Pos(1465, 673))
+    static CheckBtn := Point(Pos(1465, 673), Pos(1141, 673))
+
+    static refreshPos(){
+        this.teleportBtnRange[1].refresh_pos()
+        this.teleportBtnRange[2].refresh_pos()
+        this.ChoiceBtnRange[1].refresh_pos()
+        this.ChoiceBtnRange[2].refresh_pos()
+        this.CheckBtn.refresh_pos()
+    }
 
     ; 获取是否存在包含“传送”两个字的按钮位置
     static getBtnIsOk(&targetX, &targetY){
@@ -33,6 +41,7 @@ class Teleport {
     }
 
     static fastTeleport(){
+        this.refreshPos()
         isOkToTeleport := this.getBtnIsOk(&targetX, &targetY)
         ChoiceBtnExist_1 := ImageSearch(&choiceTargetX1, &choiceTargetY1, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport1.png")
         ChoiceBtnExist_2 := ImageSearch(&choiceTargetX2, &choiceTargetY2, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport2.png")
