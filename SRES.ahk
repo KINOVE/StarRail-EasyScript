@@ -47,6 +47,7 @@ Space Up:: SendInput('{Space Up}')
     SetTimer(clickPlus, 50)
 }
 
+; 还没适配16:9，最后再搞
 ^1::SimulatedUniverseIndex.EventReward()
 
 

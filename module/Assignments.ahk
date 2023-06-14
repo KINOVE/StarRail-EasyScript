@@ -4,24 +4,37 @@
 #Include ../core/StarRail.ahk
 
 Class Assignments {
-    static p_Assignments_Red_Tip := Point(Pos(2417, 319))
+    static p_Assignments_Red_Tip := Point(Pos(2417, 319), Pos(1783, 319))
     static c_Assignments_Red_Tip := Color('#d62c2b')
     static p_Tabs_Red := [
-        Point(Pos(888, 205)),
-        Point(Pos(1148, 205)),
-        Point(Pos(1408, 205))
+        Point(Pos(888, 205), Pos(575, 205)),
+        Point(Pos(1148, 205), Pos(835, 205)),
+        Point(Pos(1408, 205), Pos(1096, 205))
     ]
     static c_Tabs_Red := Color('#d62d2b')
 
     static p_Child_Tabs_Red_Range := [
-        Point(Pos(1095, 291)),
-        Point(Pos(1125, 682))
+        Point(Pos(1095, 291), Pos(640, 291)),
+        Point(Pos(1125, 883), Pos(804, 883))
     ]
 
-    static p_Claim_Btn := Point(Pos(1675, 908))
-    static p_repatch := Point(Pos(1372, 960))
+    ; 以下两个可能不准确
+    static p_Claim_Btn := Point(Pos(1675, 908), Pos(1474, 908))
+    static p_repatch := Point(Pos(1372, 960), Pos(1138, 960))
+
+    static refreshPos(){
+        this.p_Assignments_Red_Tip.refresh_pos()
+        this.p_Tabs_Red[1].refresh_pos()
+        this.p_Tabs_Red[2].refresh_pos()
+        this.p_Tabs_Red[3].refresh_pos()
+        this.p_Child_Tabs_Red_Range[1].refresh_pos()
+        this.p_Child_Tabs_Red_Range[2].refresh_pos()
+        this.p_Claim_Btn.refresh_pos()
+        this.p_repatch.refresh_pos()
+    }
 
     static Claim_All(){
+        this.refreshPos()
         ToolTip("正在领取委托奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
         SendInput('{Esc}')
         Sleep(1000)
