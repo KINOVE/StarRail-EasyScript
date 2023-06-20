@@ -33,18 +33,9 @@ Class Assignments {
         this.p_repatch.refresh_pos()
     }
 
-    static Claim_All(){
+    static OnlyClaimAssignmentsRewards(){
         this.refreshPos()
         ToolTip("正在领取委托奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
-        SendInput('{Esc}')
-        Sleep(1000)
-        if (!Tools.pixelExist(this.p_Assignments_Red_Tip, this.c_Assignments_Red_Tip.c)){
-            SendInput('{Esc}')
-            ToolTip('没有新的委托奖励需要领取', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
-            SetTimer () => ToolTip('',,1), -3000
-            ToolTip("",,, 11)
-            return
-        }
         ; 打开Assignments页面
         MouseClick( , this.p_Assignments_Red_Tip.x, this.p_Assignments_Red_Tip.y)
         Sleep(1000)
@@ -67,7 +58,21 @@ Class Assignments {
         }
         SendInput('{Esc}')
         Sleep(1000)
-        SendInput('{Esc}')
         ToolTip("",,, 11)
+    }
+
+    static ClaimAssignmentsRewards(){
+        this.refreshPos()
+        SendInput('{Esc}')
+        Sleep(1000)
+        if (!Tools.pixelExist(this.p_Assignments_Red_Tip, this.c_Assignments_Red_Tip.c)){
+            SendInput('{Esc}')
+            ToolTip('没有新的委托奖励需要领取', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
+            SetTimer () => ToolTip('',,1), -3000
+            ToolTip("",,, 11)
+            return
+        }
+        this.OnlyClaimAssignmentsRewards()
+        SendInput('{Esc}')
     }
 }
