@@ -33,7 +33,8 @@ class GetAllDailyRewards {
             Assignments.OnlyClaimAssignmentsRewards()
         }
         if(isAchievementRewardExist){
-            MsgBox('成就')
+            ; MsgBox('成就')
+            Achievement.OnlyClaimAchievementRewards()
         }
         if(isDailyTrainingRewardExist){
             ; MsgBox('每日实训')
@@ -45,8 +46,11 @@ class GetAllDailyRewards {
             MouseClick(, this.RewardsRedTipBattlePass.x - 10, this.RewardsRedTipBattlePass.y + 10, , 1)
             BattlePass.OnlyClaimBattlePassRewards()
         }
+
+        ; 退出Esc菜单界面
         SendInput('{Esc}')
 
+        ; 进行简单的任务结束提示
         if(isAchievementRewardExist || isAchievementRewardExist || isDailyTrainingRewardExist || isBattlePassRewardExist){
             ToolTip("所有奖励已被领取", StarRail.game_size.width/2, StarRail.game_size.height/2, 19)
             SetTimer () => ToolTip('',,,19), -3000

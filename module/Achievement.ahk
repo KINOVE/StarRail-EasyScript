@@ -10,19 +10,7 @@ Class Achievement{
     ]
     static getRewardsBtnPoint := Point(Pos(2348, 308))
 
-
-    static get_achievement_rewards(){
-        ToolTip("正在领取成就奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
-        SendInput('{Esc}')
-        Sleep(1000)
-        if (!Tools.pixelExist(this.isRewardsExistPoint, '0xd62d2c')){
-            SendInput('{Esc}')
-            ToolTip('没有新的成就奖励需要领取', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
-            SetTimer () => ToolTip('',,1), -3000
-            ToolTip("",,, 11)
-            return
-        }
-        MouseClick( , this.isRewardsExistPoint.x, this.isRewardsExistPoint.y, , 0)
+    static OnlyClaimAchievementRewards(){
         Sleep(1000)
         MouseClick( , this.centerBtnPoint.x, this.centerBtnPoint.y, , 0)
         Sleep(1000)
@@ -41,9 +29,23 @@ Class Achievement{
         }
         SendInput('{Esc}')
         Sleep(1000)
+    }
+
+    static ClaimAchievementRewards(){
+        ToolTip("正在领取成就奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
         SendInput('{Esc}')
         Sleep(1000)
-        SendInput('{Esc}')
+        if (!Tools.pixelExist(this.isRewardsExistPoint, '0xd62d2c')){
+            SendInput('{Esc}')
+            ToolTip('没有新的成就奖励需要领取', StarRail.game_size.width/2, StarRail.game_size.height/2, 1)
+            SetTimer () => ToolTip('',,1), -3000
+            ToolTip("",,, 11)
+            return
+        }
+        MouseClick( , this.isRewardsExistPoint.x, this.isRewardsExistPoint.y, , 0)
+        this.OnlyClaimAchievementRewards()
+        ; SendInput('{Esc}')
+        ; Sleep(1000)
         ToolTip("",,, 11)
     }
 }

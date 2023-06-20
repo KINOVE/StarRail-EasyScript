@@ -59,7 +59,7 @@ Space Up:: SendInput('{Space Up}')
 
 ^F2::BattlePass.ClaimBattlePassRewards()
 
-^F3::Achievement.get_achievement_rewards()
+^F3::Achievement.ClaimAchievementRewards()
 
 ^F4::DailyTraining.ClaimDailyTrainingRewards()
 
