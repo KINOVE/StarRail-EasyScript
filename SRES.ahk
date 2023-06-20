@@ -14,6 +14,7 @@
 #Include module/Assignments.ahk
 #Include module/DailyTraining.ahk
 #Include module/SimulatedUniverseIndex.ahk
+#Include module/GetAllDailyRewards.ahk
 
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
@@ -54,25 +55,26 @@ Space Up:: SendInput('{Space Up}')
 ; 在场景为大世界的时候启用以下功能
 #HotIf StarRail.is_game_active() && (Scenes.GetScene() == 1)
 
-^F1::Assignments.Claim_All()
+^F1::Assignments.ClaimAssignmentsRewards()
 
-^F2::BattlePass.get_bp_awards()
+^F2::BattlePass.ClaimBattlePassRewards()
 
 ^F3::Achievement.get_achievement_rewards()
 
-^F4::DailyTraining.ClaimAll()
+^F4::DailyTraining.ClaimDailyTrainingRewards()
 
-`::{
-    Assignments.Claim_All()
-    Sleep(1000)
-    Achievement.get_achievement_rewards()
-    Sleep(1000)
-    DailyTraining.ClaimAll()
-    Sleep(1000)
-    BattlePass.get_bp_awards()
-    ToolTip("全部任务结束", StarRail.game_size.width / 2, StarRail.game_size.height * 9 / 10, 11)
-    SetTimer () => ToolTip("", , ,11), -3000
-}
+`::GetAllDailyRewards.GetStatus()
+; `::{
+;     Assignments.Claim_All()
+;     Sleep(1000)
+;     Achievement.get_achievement_rewards()
+;     Sleep(1000)
+;     DailyTraining.ClaimAll()
+;     Sleep(1000)
+;     BattlePass.get_bp_awards()
+;     ToolTip("全部任务结束", StarRail.game_size.width / 2, StarRail.game_size.height * 9 / 10, 11)
+;     SetTimer () => ToolTip("", , ,11), -3000
+; }
 
 ; 场景为地图时启用
 #HotIf StarRail.is_game_active() && (Scenes.GetScene() == 2)
