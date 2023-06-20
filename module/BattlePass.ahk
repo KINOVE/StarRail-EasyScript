@@ -2,7 +2,7 @@
 #Include ../core/Tools.ahk
 #Include ../core/Color.ahk
 class BattlePass {
-    static page1 := Point(Pos(1203, 41))
+    static page1 := Point(Pos(1203, 41), Pos(888, 41))
     static page2 := Point(Pos(1299, 41))
     static page1_Btn := Point(Pos(1158, 65))
     ; static page1_Btn_color := '0xE9E9E9'
@@ -13,6 +13,15 @@ class BattlePass {
     static page2_Btn := Point(Pos(1261, 63))
     static page2_Btn_color := Color('#e8ebe8')
     static page1_one_click_fetch_btn := Point(Pos(1992,921))
+
+    static refreshPos(){
+        this.page1.refresh_pos()
+        this.page2.refresh_pos()
+        this.page1_Btn.refresh_pos()
+        this.page2_one_click_fetch_btn.refresh_pos()
+        this.page2_Btn.refresh_pos()
+        this.page2_one_click_fetch_btn.refresh_pos()
+    }
     
     ; 检查page1是否存在奖励需要领取，并
     static get_page1_awards(){
@@ -47,9 +56,7 @@ class BattlePass {
             return false
     }
 
-    static get_bp_awards(){
-        ToolTip("正在领取无名勋礼（通行证）奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
-        SendInput('{F2}')
+    static OnlyClaimBattlePassRewards(){
         Sleep(1500)
         if(!this.check_is_battle_pass_page()){
             ; MsgBox(PixelGetColor(this.page1_Btn.x, this.page1_Btn.y))
@@ -82,5 +89,11 @@ class BattlePass {
         Sleep(500)
         this.get_page1_awards()
         ToolTip("",,, 11)
+    }
+
+    static ClaimBattlePassRewards(){
+        ToolTip("正在领取无名勋礼（通行证）奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
+        SendInput('{F2}')
+        this.OnlyClaimBattlePassRewards()
     }
 }
