@@ -18,30 +18,45 @@ class GetAllDailyRewards {
     ; 红色
     static RedColor := Color('#D32D29')
 
-    ; 确定有哪些奖励可以领取
     static GetStatus(){
-        SendInput('{Esc}')
-        Sleep(1000)
         isAssignmentsRewardExist := Tools.pixelExist(this.RewardsRedTipAssignments, this.RedColor.c)
         isAchievementRewardExist := Tools.pixelExist(this.RewardsRedTipAchievement, this.RedColor.c)
         isDailyTrainingRewardExist := Tools.pixelExist(this.RewardsRedTipDailyTraining, this.RedColor.c)
         isBattlePassRewardExist := Tools.pixelExist(this.RewardsRedTipBattlePass, this.RedColor.c)
+        return [isAssignmentsRewardExist, isAchievementRewardExist, isDailyTrainingRewardExist, isBattlePassRewardExist]
+    }
+
+    ; 确定有哪些奖励可以领取
+    static ClaimAllRewards(){
+        SendInput('{Esc}')
+        Sleep(1000)
+        static Status := this.GetStatus()
 
 
-        if(isAssignmentsRewardExist){
+        if(Status[1]){
             ; MsgBox('委托')
             Assignments.OnlyClaimAssignmentsRewards()
         }
-        if(isAchievementRewardExist){
+
+        Status := this.GetStatus()
+
+        if(Status[2]){
             ; MsgBox('成就')
             Achievement.OnlyClaimAchievementRewards()
         }
-        if(isDailyTrainingRewardExist){
+
+        Status := this.GetStatus()
+
+        if(Status[3]){
             ; MsgBox('每日实训')
             MouseClick(, this.RewardsRedTipDailyTraining.x - 10, this.RewardsRedTipDailyTraining.y + 10, , 1)
             DailyTraining.OnlyClaimDailyTrainingRewards()
+            Sleep(500)
         }   
-        if(isBattlePassRewardExist){
+
+        Status := this.GetStatus()
+
+        if(Status[4]){
             ; MsgBox('通行证')
             MouseClick(, this.RewardsRedTipBattlePass.x - 10, this.RewardsRedTipBattlePass.y + 10, , 1)
             BattlePass.OnlyClaimBattlePassRewards()
@@ -51,13 +66,7 @@ class GetAllDailyRewards {
         SendInput('{Esc}')
 
         ; 进行简单的任务结束提示
-        if(isAchievementRewardExist || isAchievementRewardExist || isDailyTrainingRewardExist || isBattlePassRewardExist){
-            ToolTip("所有奖励已被领取", StarRail.game_size.width/2, StarRail.game_size.height/2, 19)
-            SetTimer () => ToolTip('',,,19), -3000
-        }
-        else{
-            ToolTip("没有奖励需要领取", StarRail.game_size.width/2, StarRail.game_size.height/2, 19)
-            SetTimer () => ToolTip('',,,19), -3000
-        }
+        ToolTip("所有奖励已被领取", StarRail.game_size.width/2, StarRail.game_size.height/2, 19)
+        SetTimer () => ToolTip('',,,19), -3000
     }
 }

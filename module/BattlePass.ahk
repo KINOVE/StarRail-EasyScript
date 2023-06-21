@@ -88,6 +88,7 @@ class BattlePass {
         SendInput('{Esc}')
         Sleep(500)
         this.get_page1_awards()
+        SetTimer () => SendInput('{Esc}'), -1000
         ToolTip("",,, 11)
     }
 

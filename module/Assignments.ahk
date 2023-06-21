@@ -57,7 +57,7 @@ Class Assignments {
             }
         }
         SendInput('{Esc}')
-        Sleep(1000)
+        Sleep(1500)
         ToolTip("",,, 11)
     }
 

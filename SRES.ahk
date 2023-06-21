@@ -63,7 +63,7 @@ Space Up:: SendInput('{Space Up}')
 
 ^F4::DailyTraining.ClaimDailyTrainingRewards()
 
-`::GetAllDailyRewards.GetStatus()
+`::GetAllDailyRewards.ClaimAllRewards()
 ; `::{
 ;     Assignments.Claim_All()
 ;     Sleep(1000)
