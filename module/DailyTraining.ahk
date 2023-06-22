@@ -57,6 +57,7 @@ Class DailyTraining {
         this.find_and_click_to_claim_exp()
         this.find_and_click_to_claim_red_tips_reward()
         SendInput('{Esc}')
+        Sleep(1500)
         ToolTip("",,, 11)
     }
 }

@@ -23,11 +23,11 @@ class BattlePass {
         this.page2_one_click_fetch_btn.refresh_pos()
     }
     
-    ; 检查page1是否存在奖励需要领取，并
+    ; 检查page1是否存在奖励需要领取
     static get_page1_awards(){
         if(!Tools.pixelExist(this.page1, this.page_red_color.c)){
             ; MsgBox('get_page1_awards()' . Tools.pixelExist(this.page1, this.page_red_color.c))
-            return
+            return SendInput('{Esc}')
         }
         ; 切换到第一页
         MouseClick( , this.page1.x, this.page1.y, , 0)
@@ -88,7 +88,7 @@ class BattlePass {
         SendInput('{Esc}')
         Sleep(500)
         this.get_page1_awards()
-        SetTimer () => SendInput('{Esc}'), -1000
+        ; SetTimer () => SendInput('{Esc}'), -1000
         ToolTip("",,, 11)
     }
 

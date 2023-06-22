@@ -62,6 +62,7 @@ class GetAllDailyRewards {
             BattlePass.OnlyClaimBattlePassRewards()
         }
 
+        Sleep(1000)
         ; 退出Esc菜单界面
         SendInput('{Esc}')
 
