@@ -42,6 +42,7 @@ class GetAllDailyRewards {
 
         if(Status[2]){
             ; MsgBox('成就')
+            MouseClick(, this.RewardsRedTipAchievement.x - 10, this.RewardsRedTipAchievement.y + 10, , 1)
             Achievement.OnlyClaimAchievementRewards()
         }
 

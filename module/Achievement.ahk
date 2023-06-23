@@ -25,8 +25,9 @@ Class Achievement{
                 SendInput('{Esc}')
                 Sleep(800)
             }
-            ; Sleep(300)
         }
+        SendInput('{Esc}')
+        Sleep(500)
         SendInput('{Esc}')
         Sleep(1000)
     }
@@ -44,8 +45,8 @@ Class Achievement{
         }
         MouseClick( , this.isRewardsExistPoint.x, this.isRewardsExistPoint.y, , 0)
         this.OnlyClaimAchievementRewards()
-        ; SendInput('{Esc}')
-        ; Sleep(1000)
+        SendInput('{Esc}')
+        Sleep(1000)
         ToolTip("",,, 11)
     }
 }
