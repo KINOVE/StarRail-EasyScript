@@ -15,6 +15,7 @@
 #Include module/DailyTraining.ahk
 #Include module/SimulatedUniverseIndex.ahk
 #Include module/GetAllDailyRewards.ahk
+#Include module/ThirdPartyTools.ahk
 
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
@@ -50,6 +51,8 @@ Space Up:: SendInput('{Space Up}')
 
 ; 还没适配16:9，最后再搞
 ^1::SimulatedUniverseIndex.EventReward()
+
+^2::ThirdPartyTools.launch_tools()
 
 
 ; 在场景为大世界的时候启用以下功能
