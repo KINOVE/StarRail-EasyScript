@@ -8,11 +8,12 @@ class ThirdPartyTools {
     ]
 
     static launch_tools(){
-        if(ProcessExist(this.tool_names[1])){
-            ; MsgBox(this.tool_names[1])
-            return
+        if(PID := ProcessExist(this.tool_names[1])){ ; 假如存在进程，获取其PID
+            ; MsgBox(PID)
+            ProcessClose(this.tool_names[1])    ; 关闭进程，等待重新打开
+            ProcessClose(PID)
         }
-        ; 如果不存在 -> 没有打开程序
+        ; 打开程序
         Run(this.tool_dir[1])
     }
 }
