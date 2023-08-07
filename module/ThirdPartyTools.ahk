@@ -6,6 +6,7 @@ class ThirdPartyTools {
     static tool_dir := [
         "E:\Tools\StarRail\HSR-Unlock.exe"
     ]
+    static volume := 0
 
     static launch_tools(){
         if(PID := ProcessExist(this.tool_names[1])){ ; 假如存在进程，获取其PID
@@ -15,5 +16,15 @@ class ThirdPartyTools {
         }
         ; 打开程序
         Run(this.tool_dir[1])
+    }
+
+    static adjust_volume(){
+        switch this.volume {
+            case 0:
+                this.volume := 0.5
+            default:
+                this.volume := 0
+        }
+        Run "nircmd setappvolume StarRail.exe " . this.volume
     }
 }

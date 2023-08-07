@@ -57,6 +57,9 @@ Space Up:: SendInput('{Space Up}')
 
 !e::Artifact.Lock()
 
+; 调用nircmd调整星铁的音量
+^3::ThirdPartyTools.adjust_volume()
+
 
 ; 在场景为大世界的时候启用以下功能
 #HotIf StarRail.is_game_active() && (Scenes.GetScene() == 1)
