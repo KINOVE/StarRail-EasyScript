@@ -43,7 +43,10 @@
 |     `Ctrl+3`      |      `无限制`       | 将`StarRail.exe`静音/音量调整到50%[^2] |
 | `Ctrl+Alt+LClick` |      `无限制`       |            鼠标快速连点            |
 
-> 使用了`nircmd`工具来进行单应用音量调整，体积很小，功能很足，强烈推荐 [这是链接](http://www.nirsoft.net/utils/nircmd.html)
+> 使用了`nircmd`工具来进行单应用音量调整，体积很小，功能很足，强烈推荐 
+> 
+> [这是官网链接，下载链接在页面最下方](http://www.nirsoft.net/utils/nircmd.html)
+> 
 > 建议使用管理员权限双击打开复制到C盘，这样使用cmd即可全局调用
 
 [^*]: 可用于脚本功能异常时紧急重置
