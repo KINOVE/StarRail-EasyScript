@@ -6,8 +6,9 @@ class ThirdPartyTools {
     static tool_dir := [
         "E:\Tools\StarRail\HSR-Unlock.exe"
     ]
-    static volume := 0
+    static volume := 50
 
+    ; 开启第三方工具
     static launch_tools(){
         if(PID := ProcessExist(this.tool_names[1])){ ; 假如存在进程，获取其PID
             ; MsgBox(PID)
@@ -18,6 +19,7 @@ class ThirdPartyTools {
         Run(this.tool_dir[1])
     }
 
+    ; 调整游戏音量(50%和0之间互相切换)
     static adjust_volume(){
         switch this.volume {
             case 0:

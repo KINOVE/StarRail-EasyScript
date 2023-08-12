@@ -7,10 +7,14 @@ class Point {
         this.pos219 := pos219
         this.x := pos219.x
         this.y := pos219.y
+        this.refresh_pos()  ;改为自动刷新 -> 为什么我之前没想到在这里刷新???,麻了
     }
 
     ; 刷新点位数据
     refresh_pos() {
+        if(StarRail.game_size.width == 0 || StarRail.game_size.height == 0){
+            StarRail.get_game_pos()
+        }
         game_width := StarRail.game_size.width
         game_height := StarRail.game_size.height
         if(game_width == 0 || game_height == 0){
