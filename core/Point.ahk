@@ -11,8 +11,9 @@ class Point {
     }
 
     ; 刷新点位数据
-    refresh_pos() {
-        if(StarRail.game_size.width == 0 || StarRail.game_size.height == 0){
+    refresh_pos() { 
+        while (!StarRail.is_game_exist()) || (StarRail.game_size.width == 0 || StarRail.game_size.height == 0) {
+            Sleep(500)
             StarRail.get_game_pos()
         }
         game_width := StarRail.game_size.width

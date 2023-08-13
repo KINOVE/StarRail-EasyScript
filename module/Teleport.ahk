@@ -80,7 +80,6 @@ class Teleport {
                 MouseGetPos(&x, &y)
                 MouseClick(, targetX, targetY, , 0)
                 MouseMove(x, y, 0)
-                break
             case 2:
                 MouseGetPos(&x, &y)
                 MouseClick(, targetX, targetY, , 0)
@@ -88,7 +87,6 @@ class Teleport {
                 MouseClick(, this.CheckBtn.x, this.CheckBtn.y, , 0)
                 Sleep(300)
                 MouseMove(x, y, 0)
-                break
         }
     }
 }
