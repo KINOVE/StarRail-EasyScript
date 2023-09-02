@@ -7,7 +7,7 @@ Class PointExtractor {
     ; 1.Point(Pos(x,y)) Color() 
     ; 2.Color()
     ; 3.Pos()
-    static model := 3
+    static model := 1
     static getPoint(){
         MouseGetPos(&x,&y)
         c := PixelGetColor(x,y)

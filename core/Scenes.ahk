@@ -43,20 +43,37 @@ Class Scenes{
         return true
     }
 
+    static IsTeamScene(){
+        static Points := [
+            Point(Pos(0,0), Pos(70,50)),
+        ]
+        static Colors := [
+            Color("#E7CA95"),
+        ]
+
+        while (A_Index <= Points.Length){
+            Points[A_Index].refresh_pos()
+            if(!Tools.pixelExist(Points[A_Index], Colors[A_Index].c)){
+                return false
+            }
+        }
+        
+        return true
+    }
 
     static GetScene(){
         ; 1:游戏主界面
         ; 2:地图界面
+        ; 3:队伍界面
 
-        if(this.IsWorldScene()){
+        if(this.IsWorldScene())
             return 1
-        }
-        else if (this.IsMapScene()){
+        else if (this.IsMapScene())
             return 2
-        }
-        else{
+        else if (this.IsTeamScene())
+            return 3
+        else
             return 0
-        }
 
     }
 }

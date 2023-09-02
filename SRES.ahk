@@ -18,6 +18,7 @@
 #Include module/GetAllDailyRewards.ahk
 #Include module/ThirdPartyTools.ahk
 #Include module/Artifact.ahk
+#Include module/Team.ahk
 
 ; Test
 #Include test.ahk
@@ -99,3 +100,8 @@ Space Up:: SendInput('{Space Up}')
 !^`::PointExtractor.searchColor()
 
 ; =::Test.test()
+
+
+
+; keys
+#Include keys1.ahk
