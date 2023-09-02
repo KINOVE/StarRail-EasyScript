@@ -21,12 +21,13 @@ class ThirdPartyTools {
 
     ; 调整游戏音量(50%和0之间互相切换)
     static adjust_volume(){
-        switch this.volume {
-            case 0:
-                this.volume := 0.5
-            default:
-                this.volume := 0
-        }
-        Run "nircmd setappvolume StarRail.exe " . this.volume
+        ; switch this.volume {
+        ;     case 0:
+        ;         this.volume := 0.5
+        ;     default:
+        ;         this.volume := 0
+        ; }
+        ; Run "nircmd setappvolume StarRail.exe " . this.volume
+        Run "nircmd muteappvolume StarRail.exe 2"
     }
 }

@@ -6,6 +6,7 @@
 #Include core/StarRail.ahk
 #Include core/Point.ahk
 #Include core/Scenes.ahk
+#Include core/PointExtractor.ahk
 
 ; Module
 #Include module/BattlePass.ahk
@@ -17,6 +18,9 @@
 #Include module/GetAllDailyRewards.ahk
 #Include module/ThirdPartyTools.ahk
 #Include module/Artifact.ahk
+
+; Test
+#Include test.ahk
 
 ; 脚本只在以下条件满足时执行
 #HotIf StarRail.is_game_active()
@@ -88,3 +92,10 @@ Space Up:: SendInput('{Space Up}')
 ; 场景为地图时启用
 #HotIf StarRail.is_game_active() && (Scenes.GetScene() == 2)
 ^T::Teleport.fastTeleport()
+
+#HotIf
+!`::PointExtractor.getPoint()
+
+!^`::PointExtractor.searchColor()
+
+; =::Test.test()

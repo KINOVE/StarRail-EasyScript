@@ -7,8 +7,8 @@ class Teleport {
     ]
     ; 目标选择按钮出现的区域
     static ChoiceBtnRange := [
-        Point(Pos(1090,605), Pos(780, 653)),
-        Point(Pos(1182,952), Pos(858, 954))
+        Point(Pos(1090,605), Pos(759,617)),
+        Point(Pos(1182,952), Pos(856,937))
     ]
     ; 二次确认框中按钮出现的位置
     static CheckBtn := Point(Pos(1465, 673), Pos(1141, 673))
@@ -49,8 +49,28 @@ class Teleport {
         return false
     }
 
+    ; 当屏幕中下方出现多个可选目标的列表时
+    static getMultiBtnTargetPos(){
+        choiceTargetX := 0, choiceTargetY := 0
+        ChoiceBtnExist_1 := ImageSearch(&choiceTargetX1, &choiceTargetY1, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport1.png")
+        ChoiceBtnExist_2 := ImageSearch(&choiceTargetX2, &choiceTargetY2, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport2.png")
+        if(ChoiceBtnExist_1 && !ChoiceBtnExist_2){
+            choiceTargetX := choiceTargetX1
+            choiceTargetY := choiceTargetY1
+        }
+        else if (!ChoiceBtnExist_1 && ChoiceBtnExist_2){
+            choiceTargetX := choiceTargetX2
+            choiceTargetY := choiceTargetY2
+        }
+        else if(ChoiceBtnExist_1 && ChoiceBtnExist_2){
+            choiceTargetX := Min(choiceTargetX1, choiceTargetX2)
+            choiceTargetY := Min(choiceTargetY1, choiceTargetY2)
+        }
+        return Pos(choiceTargetX,choiceTargetY)
+    }
+
     static fastTeleport(){
-    isOkToTeleport := this.getBtnIsOk(&targetX, &targetY)
+        isOkToTeleport := this.getBtnIsOk(&targetX, &targetY)
         ChoiceBtnExist_1 := ImageSearch(&choiceTargetX1, &choiceTargetY1, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport1.png")
         ChoiceBtnExist_2 := ImageSearch(&choiceTargetX2, &choiceTargetY2, this.ChoiceBtnRange[1].x, this.ChoiceBtnRange[1].y, this.ChoiceBtnRange[2].x, this.ChoiceBtnRange[2].y, "*100 files\images\teleport2.png")
         

@@ -10,6 +10,11 @@ class Point {
         this.refresh_pos()  ;改为自动刷新 -> 为什么我之前没想到在这里刷新???,麻了
     }
 
+    set(x,y) {
+        this.x := x
+        this.y := y
+    }
+
     ; 刷新点位数据
     refresh_pos() { 
         while (!StarRail.is_game_exist()) || (StarRail.game_size.width == 0 || StarRail.game_size.height == 0) {
@@ -31,22 +36,28 @@ class Point {
             ; 2560/1440 = 1920/1080 = 21/9 = 2.3333333333333333333333333333333
             case 2560/1080:
                 if(this.pos219.x == '' || this.pos219.y == ''){
-                    MsgBox('尚未设置符合要求的21:9点位坐标, 脚本已暂停, debug后请按Ctrl+Alt+R重置脚本状态')
-                    Pause
+                    this.set(0,0)
+                    return
+                    ; MsgBox('尚未设置符合要求的21:9点位坐标, 脚本已暂停, debug后请按Ctrl+Alt+R重置脚本状态')
+                    ; Pause
                 }
                 this.x := this.pos219.x * game_width / 2560
                 this.y := this.pos219.y * game_height / 1080
             case 3440/1440:
                 if(this.pos219.x == '' || this.pos219.y == ''){
-                    MsgBox('尚未设置符合要求的21:9点位坐标, 脚本已暂停, debug后请按Ctrl+Alt+R重置脚本状态')
-                    Pause
+                    this.set(0,0)
+                    return
+                    ; MsgBox('尚未设置符合要求的21:9点位坐标, 脚本已暂停, debug后请按Ctrl+Alt+R重置脚本状态')
+                    ; Pause
                 }
                 this.x := this.pos219.x * game_width / 2560
                 this.y := this.pos219.y * game_height / 1080
             case 16/9:
                 if(this.pos169.x == '' || this.pos169.y == ''){
-                    MsgBox('尚未设置符合要求的16:9点位坐标, 脚本已暂停, debug后请按Ctrl+Alt+R重置脚本状态')
-                    Pause
+                    this.set(0,0)
+                    return
+                    ; MsgBox('尚未设置符合要求的16:9点位坐标, 脚本已暂停, debug后请按Ctrl+Alt+R重置脚本状态')
+                    ; Pause
                 }
                 this.x := this.pos169.x * game_width / 1920
                 this.y := this.pos169.y * game_height / 1080

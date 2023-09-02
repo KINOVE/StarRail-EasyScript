@@ -5,15 +5,16 @@
 #Include Achievement.ahk
 #Include DailyTraining.ahk
 #Include BattlePass.ahk
+; 获取全部日常奖励（所有日常红点的总集）
 class GetAllDailyRewards {
     ; Assignments委托
     static RewardsRedTipAssignments := Point(Pos(2417, 319), Pos(1783, 319))
     ; Achievement成就
-    static RewardsRedTipAchievement := Point(Pos(2420, 443))
+    static RewardsRedTipAchievement := Point(Pos(2420, 443), Pos(1778,443))
     ; DailyTraining每日实训
-    static RewardsRedTipDailyTraining := Point(Pos(2032,706))
+    static RewardsRedTipDailyTraining := Point(Pos(2032,706), Pos(1391,706))
     ; BattlePass通行证
-    static RewardsRedTipBattlePass := Point(Pos(2160,575))
+    static RewardsRedTipBattlePass := Point(Pos(2160,575), Pos(1523,577))
 
     ; 红色
     static RedColor := Color('#D32D29')

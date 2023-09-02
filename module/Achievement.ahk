@@ -1,5 +1,6 @@
 #Include ../core/Point.ahk
 #Include ../core/Tools.ahk
+; 成就
 Class Achievement{
     
     static isRewardsExistPoint := Point(Pos(2420, 443))

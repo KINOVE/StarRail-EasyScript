@@ -2,14 +2,14 @@
 #Include ../core/Color.ahk
 #Include ../core/Tools.ahk
 #Include ../core/StarRail.ahk
-
+; 委托
 Class Assignments {
     static p_Assignments_Red_Tip := Point(Pos(2417, 319), Pos(1783, 319))
     static c_Assignments_Red_Tip := Color('#d62c2b')
     static p_Tabs_Red := [
-        Point(Pos(888, 205), Pos(575, 205)),
-        Point(Pos(1148, 205), Pos(835, 205)),
-        Point(Pos(1408, 205), Pos(1096, 205))
+        Point(Pos(888, 205), Pos(519,222)),
+        Point(Pos(1148, 205), Pos(738,225)),
+        Point(Pos(1408, 205), Pos(958,221))
     ]
     static c_Tabs_Red := Color('#d62d2b')
 
@@ -19,8 +19,8 @@ Class Assignments {
     ]
 
     ; 以下两个可能不准确
-    static p_Claim_Btn := Point(Pos(1675, 908), Pos(1474, 908))
-    static p_repatch := Point(Pos(1372, 960), Pos(1138, 960))
+    static p_Claim_Btn := Point(Pos(1675, 908), Pos(1307,923))
+    static p_repatch := Point(Pos(1372, 960), Pos(1307,923))
 
     static refreshPos(){
         this.p_Assignments_Red_Tip.refresh_pos()
@@ -48,9 +48,9 @@ Class Assignments {
                     MouseClick( , targetx, targety + 10)
                     Sleep(200)
                     MouseClick(,this.p_Claim_Btn.x, this.p_Claim_Btn.y)
-                    Sleep(1000)
+                    Sleep(300)
                     MouseClick(,this.p_repatch.x, this.p_repatch.y)
-                    Sleep(500)
+                    Sleep(600)
                     SendInput('{Esc}')
                     Sleep(300)
                 }

@@ -1,18 +1,19 @@
 #Include ../core/Point.ahk
 #Include ../core/Tools.ahk
 #Include ../core/Color.ahk
+; 通行证（无名勋礼）
 class BattlePass {
     static page1 := Point(Pos(1203, 41), Pos(888, 41))
-    static page2 := Point(Pos(1299, 41))
-    static page1_Btn := Point(Pos(1158, 65))
+    static page2 := Point(Pos(1299, 41), Pos(984, 41))
+    static page1_Btn := Point(Pos(1158, 65), Pos(863,38))
     ; static page1_Btn_color := '0xE9E9E9'
     static page1_Btn_color := Color('#e9e9e9')
     static page_red_color := Color('#D32D29')
-    static page2_one_click_fetch_btn := Point(Pos(2190, 917))
+    static page2_one_click_fetch_btn := Point(Pos(2190, 917), Pos(1533,917))
     static btn_yellow_color := Color('#ffc85b')
-    static page2_Btn := Point(Pos(1261, 63))
+    static page2_Btn := Point(Pos(1261, 63), Pos(959,38))
     static page2_Btn_color := Color('#e8ebe8')
-    static page1_one_click_fetch_btn := Point(Pos(1992,921))
+    static page1_one_click_fetch_btn := Point(Pos(1992,921), Pos(1418,913))
 
     static refreshPos(){
         this.page1.refresh_pos()
@@ -43,14 +44,16 @@ class BattlePass {
     }
 
     static check_is_upgrade(){
-        if(PixelGetColor(this.page2_Btn.x, this.page2_Btn.y) != this.page2_Btn_color.c)
+        ; if(PixelGetColor(this.page2_Btn.x, this.page2_Btn.y) != this.page2_Btn_color.c)
+        if(Tools.pixelExist(this.page2_Btn,this.page2_Btn_color.c))
             return true
         else
             return false
     }
-
+    
     static check_is_battle_pass_page(){
-        if(PixelGetColor(this.page1_Btn.x, this.page1_Btn.y) == this.page1_Btn_color.c)
+        ; if(PixelGetColor(this.page1_Btn.x, this.page1_Btn.y) == this.page1_Btn_color.c)
+        if(Tools.pixelExist(this.page1_Btn,this.page1_Btn_color.c))
             return true
         else
             return false
