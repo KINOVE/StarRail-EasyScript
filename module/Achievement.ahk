@@ -4,12 +4,12 @@
 Class Achievement{
     
     static isRewardsExistPoint := Point(Pos(2420, 443))
-    static centerBtnPoint := Point(Pos(1272, 417))
+    static centerBtnPoint := Point(Pos(1272, 417), Pos(940,314))
     static redTabsRange := [
-        Point(Pos(848, 22)),
-        Point(Pos(1714, 60))
+        Point(Pos(848, 22), Pos(552,23)),
+        Point(Pos(1714, 60), Pos(1382,68))
     ]
-    static getRewardsBtnPoint := Point(Pos(2348, 308))
+    static getRewardsBtnPoint := Point(Pos(2348, 308), Pos(1740,307))
 
     static OnlyClaimAchievementRewards(){
         Sleep(1000)

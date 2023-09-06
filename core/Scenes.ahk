@@ -46,9 +46,11 @@ Class Scenes{
     static IsTeamScene(){
         static Points := [
             Point(Pos(0,0), Pos(70,50)),
+            Point(,Pos(1864,66)),
         ]
         static Colors := [
             Color("#E7CA95"),
+            Color("#FFFFFF"),
         ]
 
         while (A_Index <= Points.Length){

@@ -1,8 +1,9 @@
 #Include ../core/Point.ahk
 #Include ../core/Tools.ahk
 #Include ../core/Color.ahk
-; 如果mhy优化了模拟宇宙奖励的一键领取，那么这个功能就不再有必要存在了
+; 模拟宇宙
 Class SimulatedUniverseIndex{
+    ; 如果mhy优化了模拟宇宙奖励的一键领取，那么这个功能就不再有必要存在了
     static rewardBtnRange := [
         Point(Pos(2394, 884)),
         Point(Pos(2515,1006))

@@ -36,9 +36,7 @@
 ^!r:: Reload
 
 ; 连跳
-Space:: {
-    SendInput('{Space}')
-}
+Space:: SendInput('{Space}')
 Space Up:: SendInput('{Space Up}')
 
 ; 鼠标快速连点
@@ -67,7 +65,7 @@ Space Up:: SendInput('{Space Up}')
 
 
 ; 在场景为大世界的时候启用以下功能
-#HotIf StarRail.is_game_active() && (Scenes.GetScene() == 1)
+#HotIf StarRail.is_game_active() && Scenes.IsWorldScene()
 
 ^F1::Assignments.ClaimAssignmentsRewards()
 
@@ -78,20 +76,9 @@ Space Up:: SendInput('{Space Up}')
 ^F4::DailyTraining.ClaimDailyTrainingRewards()
 
 `::GetAllDailyRewards.ClaimAllRewards()
-; `::{
-;     Assignments.Claim_All()
-;     Sleep(1000)
-;     Achievement.get_achievement_rewards()
-;     Sleep(1000)
-;     DailyTraining.ClaimAll()
-;     Sleep(1000)
-;     BattlePass.get_bp_awards()
-;     ToolTip("全部任务结束", StarRail.game_size.width / 2, StarRail.game_size.height * 9 / 10, 11)
-;     SetTimer () => ToolTip("", , ,11), -3000
-; }
 
 ; 场景为地图时启用
-#HotIf StarRail.is_game_active() && (Scenes.GetScene() == 2)
+#HotIf StarRail.is_game_active() && Scenes.IsMapScene()
 ^T::Teleport.fastTeleport()
 
 #HotIf
