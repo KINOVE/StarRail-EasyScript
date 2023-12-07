@@ -80,7 +80,7 @@ class BattlePass {
         MouseClick(, this.page2.x, this.page2.y)
         Sleep(1000)
         MouseClick( , this.page2_one_click_fetch_btn.x, this.page2_one_click_fetch_btn.y, , 0)
-        Sleep(1500)
+        Sleep(2000)
         ; 假如没有升级界面弹出/page2激活的按钮没有被遮挡
         if(!this.check_is_upgrade()){
             SendInput('{Esc}')

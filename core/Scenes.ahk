@@ -45,8 +45,8 @@ Class Scenes{
 
     static IsTeamScene(){
         static Points := [
-            Point(Pos(0,0), Pos(70,50)),
-            Point(,Pos(1864,66)),
+            Point(Pos(68,48), Pos(70,50)),
+            Point(Pos(2503,66),Pos(1864,66)),
         ]
         static Colors := [
             Color("#E7CA95"),

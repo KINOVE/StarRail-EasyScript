@@ -5,6 +5,12 @@ class Teleport {
         Point(Pos(2222,956), Pos(1567, 950)),
         Point(Pos(2355,990), Pos(1722, 990))
     ]
+    ; 前往按钮会出现的区域
+    static goBtnRange := [
+        Point(Pos(2300,956), Pos(1700, 950)),
+        Point(Pos(2500,990), Pos(1824, 990))
+    ]
+
     ; 目标选择按钮出现的区域
     static ChoiceBtnRange := [
         Point(Pos(1090,605), Pos(759,617)),
@@ -28,12 +34,40 @@ class Teleport {
         return false
     }
 
+    ; 检查是否有 "传送" 按钮存在
+    static IsTeleportBtnExist(&targetX,&targetY,BtnRange){
+        images := [
+            "files\images\teleportBtn.png",
+            "files\images\teleportBtn1440.png"
+        ]
+        for image in images {
+            if(ImageSearch(&targetX,&targetY,BtnRange[1].x,BtnRange[1].y,BtnRange[2].x,BtnRange[2].y,"*100 " . image) == true){
+                return true
+            }
+        }
+        return false
+    }
+
+    ; 检查是否有"前往"按钮存在
+    static IsGoBtnExist(&targetX,&targetY,BtnRange){
+        images := [
+            "files\images\goBtn.png"
+        ]
+        for image in images {
+            if(ImageSearch(&targetX,&targetY,BtnRange[1].x,BtnRange[1].y,BtnRange[2].x,BtnRange[2].y,"*100 " . image) == true){
+                return true
+            }
+        }
+        return false
+    }
+
     ; 获取是否存在包含“传送”两个字的按钮位置
     static getBtnIsOk(&targetX, &targetY){
-        targetX1 := 0, targetX2 := 0
-        targetY1 := 0, targetY2 := 0
-        target1 := ImageSearch(&targetX1, &targetY1, this.teleportBtnRange[1].x, this.teleportBtnRange[1].y, this.teleportBtnRange[2].x, this.teleportBtnRange[2].y, "*100 files\images\teleportBtn.png")
+        targetX1 := 0, targetX2 := 0, targetX3 := 0
+        targetY1 := 0, targetY2 := 0, targetX3 := 0
+        target1 := this.IsTeleportBtnExist(&targetX1,&targetY1,this.teleportBtnRange)
         target2 := this.IsTrackingBtnExist(&targetX2,&targetY2,this.teleportBtnRange)
+        target3 := this.IsGoBtnExist(&targetX3,&targetY3,this.goBtnRange)
 
         if (target1){
             targetX := targetX1
@@ -43,6 +77,10 @@ class Teleport {
         else if (target2){
             targetX := targetX2
             targetY := targetY2
+            return 2
+        } else if (target3){
+            targetX := targetX3
+            targetY := targetY3
             return 2
         }
 

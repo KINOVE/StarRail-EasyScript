@@ -4,9 +4,9 @@
 #Include ../core/Tools.ahk
 Class Team{
 
-    static LastTeamPos := Point(Pos(0,0),Pos(88,519))
-    static NextTeamPos := Point(Pos(0,0),Pos(1833,518))
-    static ConfirmPos := Point(Pos(0,0),Pos(1666,984))
+    static LastTeamPos := Point(Pos(86,521),Pos(88,519))
+    static NextTeamPos := Point(Pos(2475,519),Pos(1833,518))
+    static ConfirmPos := Point(Pos(2311,979),Pos(1666,984))
     ; 切换到上一个队伍
     static LastTeam(){
         ; this.ClickTemplate(this.LastTeamPos)
