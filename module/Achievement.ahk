@@ -7,7 +7,7 @@
 Class Achievement{
 
     ; 所有需要的坐标
-    static isRewardsExistPoint := Point(Pos(2420, 443), Pos(2814, 626))
+    static isRewardsExistPoint := Point(Pos(2420, 443), Pos(2110, 470))
     static centerBtnPoint := Point(Pos(1272, 417), Pos(940,314))
     static redTabsRange := [
         Point(Pos(848, 22), Pos(552,23)),
