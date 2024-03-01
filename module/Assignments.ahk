@@ -2,14 +2,17 @@
 #Include ../core/Color.ahk
 #Include ../core/Tools.ahk
 #Include ../core/StarRail.ahk
+
 ; 委托
+; 最后更新：2024/3/1
+; UI随时可能变更，点位可能会发生变化，如有失效，请及时发issue反馈
 Class Assignments {
     static p_Assignments_Red_Tip := Point(Pos(2417, 319), Pos(1783, 319))
     static c_Assignments_Red_Tip := Color('#d62c2b')
     static p_Tabs_Red := [
-        Point(Pos(888, 205), Pos(519,222)),
-        Point(Pos(1148, 205), Pos(738,225)),
-        Point(Pos(1408, 205), Pos(958,221))
+        Point(Pos(919, 205), Pos(595,222)),
+        Point(Pos(1213, 205), Pos(883,225)),
+        Point(Pos(1500, 205), Pos(1177,221))
     ]
     static c_Tabs_Red := Color('#d62d2b')
 
