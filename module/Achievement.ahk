@@ -1,9 +1,13 @@
 #Include ../core/Point.ahk
 #Include ../core/Tools.ahk
+
 ; 成就
+; 更新时间：2024年3月1日
+; 如有失效情况，请及时反馈
 Class Achievement{
-    
-    static isRewardsExistPoint := Point(Pos(2420, 443))
+
+    ; 所有需要的坐标
+    static isRewardsExistPoint := Point(Pos(2420, 443), Pos(2814, 626))
     static centerBtnPoint := Point(Pos(1272, 417), Pos(940,314))
     static redTabsRange := [
         Point(Pos(848, 22), Pos(552,23)),
@@ -11,6 +15,8 @@ Class Achievement{
     ]
     static getRewardsBtnPoint := Point(Pos(2348, 308), Pos(1740,307))
 
+    ; --- 功能 ---
+    ; 进入成就页面后进行领取奖励操作
     static OnlyClaimAchievementRewards(){
         Sleep(1000)
         MouseClick( , this.centerBtnPoint.x, this.centerBtnPoint.y, , 0)
@@ -33,6 +39,7 @@ Class Achievement{
         Sleep(1000)
     }
 
+    ; 导航到成就页面并领取奖励
     static ClaimAchievementRewards(){
         ToolTip("正在领取成就奖励", StarRail.game_size.width/2, StarRail.game_size.height * 9/10, 11)
         SendInput('{Esc}')
