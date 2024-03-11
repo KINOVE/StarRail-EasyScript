@@ -53,7 +53,8 @@ class Teleport {
         images := [
             "files\images\goBtn.png",
             "files\images\goBtn_1440.png",
-            "files\images\goBtn2.png"
+            "files\images\goBtn2.png",
+            "files\images\goBtn2_1440.png"
         ]
         for image in images {
             if(ImageSearch(&targetX,&targetY,BtnRange[1].x,BtnRange[1].y,BtnRange[2].x,BtnRange[2].y,"*100 " . image) == true){
