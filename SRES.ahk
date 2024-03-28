@@ -35,9 +35,7 @@
 ; 调试用功能，快速Reload脚本
 ^!r:: Reload
 
-; 连跳
-Space:: SendInput('{Space}')
-Space Up:: SendInput('{Space Up}')
+
 
 ; 鼠标快速连点
 ^!LButton::{
@@ -90,5 +88,6 @@ Space Up:: SendInput('{Space Up}')
 
 
 
-; keys
-#Include keys1.ahk
+; 拓展场景功能
+#Include Keys1.ahk
+#Include KeySwitch.ahk
