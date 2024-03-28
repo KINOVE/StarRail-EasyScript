@@ -35,7 +35,17 @@
 ; 调试用功能，快速Reload脚本
 ^!r:: Reload
 
-
+; 模拟宇宙快速强化
+^Space::{
+    MouseGetPos(&x,&y)
+    strengthenBtn := Point(Pos(2284,987),Pos(1644,987))
+    Tools.MClick(strengthenBtn)
+    Sleep(200)
+    SendInput('{Esc}')
+    Sleep(500)
+    SendInput('{Esc}')
+    MouseMove(x,y)
+}
 
 ; 鼠标快速连点
 ^!LButton::{
