@@ -68,6 +68,8 @@
 
 !e::Artifact.Lock()
 
+!d::Artifact.AbandonInBackpack()
+
 ; 调用nircmd调整星铁的音量
 ^3::ThirdPartyTools.adjust_volume()
 
