@@ -55,7 +55,7 @@
             Sleep(Random(100,150))
             Click
         } else {
-            SetTimer(clickPlus, 0)
+            SetTimer(clickPlus, 0) 
         }
     }
     SetTimer(clickPlus, 50)

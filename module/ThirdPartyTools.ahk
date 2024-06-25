@@ -21,13 +21,13 @@ class ThirdPartyTools {
 
     ; 调整游戏音量(50%和0之间互相切换)
     static adjust_volume(){
-        ; switch this.volume {
-        ;     case 0:
-        ;         this.volume := 0.5
-        ;     default:
-        ;         this.volume := 0
-        ; }
-        ; Run "nircmd setappvolume StarRail.exe " . this.volume
-        Run "nircmd muteappvolume StarRail.exe 2"
+        ; -------------------------------------------------------------
+        ; 已失效：无法直接通过StarRail.exe进程名称来搜索，现改为使用ps1脚本执行
+        ; Run "nircmd muteappvolume StarRail.exe 2"
+        ; -------------------------------------------------------------
+
+        ; 目前没有一个好的办法解决ps1脚本的弹出窗口，之后再想想办法。
+        ps1_Path := '"' . A_ScriptDir . "\module\VolumeControl.ps1" . '"'
+        Run "powershell.exe -WindowStyle Hidden -NoProfile -NonInteractive -ExecutionPolicy Bypass -File " . ps1_Path
     }
 }
