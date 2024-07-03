@@ -32,4 +32,10 @@ Class StarRail{
             WinClose
         ExitApp
     }
+
+    static get_pid(){
+        if WinExist('ahk_exe ' this.game_name)
+            return WinGetPID('ahk_exe ' this.game_name)
+        return -1
+    }
 }

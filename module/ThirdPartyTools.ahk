@@ -1,3 +1,5 @@
+#include ../core/StarRail.ahk
+
 ; 用于启动/关闭/重启一些第三方小工具
 class ThirdPartyTools {
     static tool_names := [
@@ -27,7 +29,10 @@ class ThirdPartyTools {
         ; -------------------------------------------------------------
 
         ; 目前没有一个好的办法解决ps1脚本的弹出窗口，之后再想想办法。
-        ps1_Path := '"' . A_ScriptDir . "\module\VolumeControl.ps1" . '"'
-        Run "powershell.exe -WindowStyle Hidden -NoProfile -NonInteractive -ExecutionPolicy Bypass -File " . ps1_Path
+        ; ps1_Path := '"' . A_ScriptDir . "\module\VolumeControl.ps1" . '"'
+        ; Run "powershell.exe -WindowStyle Hidden -NoProfile -NonInteractive -ExecutionPolicy Bypass -File " . ps1_Path
+
+        Run "nircmd muteappvolume /" . StarRail.get_pid() . " 2"
+        
     }
 }
